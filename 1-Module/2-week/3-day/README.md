@@ -8,7 +8,7 @@ Sometimes a problem is easy to solve in a single function
 
 Other times, solving a problem in a single function is **_doable_**, but it's not necessarily **_feasible_**.
 
-`Helper functions` are functions we write to help solve a more complex problem
+`Helper functions` are functions we write to help us solve a more complex problem
 
 - ### Remove E Words
 
