@@ -142,3 +142,27 @@ let avgVal = function (arr) {
 console.log(avgVal([5, 10])); // 7.5
 console.log(avgVal([3, 7, 2, 1, 2])); // 3
 console.log(avgVal([])); // null
+
+
+// Write a function removeEWords(sentence) that accepts a sentence string as an arg. The function should return a new string, containing only the words that don't have the letter "e" in them.
+
+// GOAL: new string
+
+function removeEWords(sentence){
+    let sentenceArr = sentence.split(" ")
+    // console.log(sentenceArr, "sentenceArr")
+    let wantedWords = []
+    for ( let i = 0; i < sentenceArr.length; i++){
+        let currWord = sentenceArr[i]
+        if (!currWord.toLowerCase().includes('e')){
+            // console.log("this word has the letter e!", currWord)
+            wantedWords.push(currWord)
+            // console.log("this is our new array", wantedWords)
+        }
+    }
+    let newSentence = wantedWords.join(" ")
+    return newSentence
+}
+
+console.log(removeEWords('What time is it everyone?')); // 'What is it'
+console.log(removeEWords('Enter the building')); // 'building'
