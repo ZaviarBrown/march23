@@ -136,3 +136,41 @@ let removeEWords = function (sentence) {
 // console.log("a" < "b");
 // console.log("Z" < "b");
 // console.log("z" < "b");
+
+
+// // Write a function removeEWords(sentence) that accepts a sentence string as an arg. The function should return a new string, containing only the words that don't have the letter "e" in them.
+
+// // GOAL: new string
+
+// function removeEWords(sentence){
+//     // split the sentence into an array, so that we can differentiate the words
+//     let sentenceArr = sentence.split(" ")
+//     // console.log(sentenceArr)
+
+//     // make an empty array to hold the words that we want to return
+//     let newArr = []
+
+//     // iterate through the array that holds each word in the given sentence
+//     for (let i = 0; i < sentenceArr.length; i++){
+
+//         // variable to represent the current word we are checking for the letter e
+//         let currWord = sentenceArr[i]
+
+//         // if the word does NOT contain the letter e, then we want it -- let's ignore the words WITH the letter e
+//         if (!currWord.includes('e')){
+//             // console.log("This word doesn't have the letter e!", currWord)
+
+//         // push the word we want to the end of the new Array
+//             newArr.push(currWord)
+//             // console.log(newArr)
+//         }
+//     }
+//     // after we've gone through the array of words, join the array with a space to convert from an array to a sentence string
+//     let newSentence = newArr.join(" ")
+
+//     // return the newly joined sentence
+//     return newSentence
+// }
+
+// console.log(removeEWords('What time is it everyone?')); // 'What is it'
+// console.log(removeEWords('Enter the building')); // 'building'
