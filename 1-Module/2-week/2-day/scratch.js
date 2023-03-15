@@ -115,54 +115,139 @@ HINT: you can use Array's slice() method to create a copy of an array
 // console.log(rotateRight(animals, 3)); // [ 'koala', 'opossum', 'kangaroo', 'wombat' ]
 // console.log(animals); // [ 'wombat', 'koala', 'opossum', 'kangaroo' ]
 
+// /**
+//  * !Average Val
+//  * Write a function avgVal(arr) that accepts an array as an arg. The function
+//  * should return the average of all values in the array. If the array is empty,
+//  *  it should return null.
+//  */
+
+// let avgVal = function (arr) {
+//     // if (arr.length === 0) {
+//     if (!arr.length) {
+//         return null;
+//     }
+
+//     let sum = 0;
+
+//     for (let i = 0; i < arr.length; i++) {
+//         let currNum = arr[i];
+
+//         sum += currNum;
+//     }
+
+//     return sum / arr.length;
+// };
+
+// console.log(avgVal([5, 10])); // 7.5
+// console.log(avgVal([3, 7, 2, 1, 2])); // 3
+// console.log(avgVal([])); // null
+
+
+// // Write a function removeEWords(sentence) that accepts a sentence string as an arg. The function should return a new string, containing only the words that don't have the letter "e" in them.
+
+// // GOAL: new string
+
+// function removeEWords(sentence){
+//     let sentenceArr = sentence.split(" ")
+//     // console.log(sentenceArr, "sentenceArr")
+//     let wantedWords = []
+//     for ( let i = 0; i < sentenceArr.length; i++){
+//         let currWord = sentenceArr[i]
+//         if (!currWord.toLowerCase().includes('e')){
+//             // console.log("this word has the letter e!", currWord)
+//             wantedWords.push(currWord)
+//             // console.log("this is our new array", wantedWords)
+//         }
+//     }
+//     let newSentence = wantedWords.join(" ")
+//     return newSentence
+// }
+
+// console.log(removeEWords('What time is it everyone?')); // 'What is it'
+// console.log(removeEWords('Enter the building')); // 'building'
+
 /**
- * !Average Val
- * Write a function avgVal(arr) that accepts an array as an arg. The function
- * should return the average of all values in the array. If the array is empty,
- *  it should return null.
+ * !Max Value
+Write a function maxValue(nums) that takes in an array of numbers as an arg. 
+The function should return the largest number of the array. If the array is 
+empty, the function should return null.
  */
 
-let avgVal = function (arr) {
-    // if (arr.length === 0) {
-    if (!arr.length) {
-        return null;
+// let maxValue = function (nums) {
+//     if (nums.length === 0) {
+//         return null;
+//     }
+
+//     let maxNumberIveSeen = nums[0];
+
+//     for (let i = 1; i < nums.length; i++) {
+//         let currNum = nums[i];
+
+//         if (currNum > maxNumberIveSeen) {
+//             maxNumberIveSeen = currNum;
+//         }
+//     }
+
+//     return maxNumberIveSeen;
+// };
+
+// console.log(maxValue([4, 6, 3, 5, 42, 4])); // 42
+// console.log(maxValue([-2, -3, -7, 3])); // 3 // -2
+// console.log(maxValue([-2, -3, -7, -30])); // -2
+// console.log(maxValue([])); // null
+
+/**
+ * !Long Words
+Write a function longWords(words) that takes in an array of words. The function
+ should return an array containing only the words that are longer than
+  5 characters.
+ */
+
+// let longWords = function (words) {
+//     let longLong = [];
+
+//     // loop through array
+//     for (let i = 0; i < words.length; i++) {
+//         let currWord = words[i];
+
+//         // if currWord length is > 5, keep it!
+//         if (currWord.length > 5) {
+//             longLong.push(currWord);
+//         }
+//         // otherwise, don't keep it!
+//     }
+
+//     return longLong;
+// };
+
+// console.log(longWords(["bike", "skateboard", "scooter", "moped"])); // [ 'skateboard', 'scooter' ]
+// console.log(longWords(["couscous", "soup", "ceviche", "solyanka", "taco"])); // [ 'couscous', 'ceviche', 'solyanka' ]
+
+// Write a function initials(name) that accepts a full name as an arg. The
+// function should return the initials for that name.
+
+let initials = function (name) {
+    let nameArr = name.split(" ");
+    let strContainer = "";
+
+    for (let i = 0; i < nameArr.length; i++) {
+        let currName = nameArr[i];
+
+        console.log("-------------New Loop-------------")
+        console.log("strContainer before +=", strContainer)
+        console.log("currName's first character", currName[0])
+
+        strContainer += currName[0]; //.toUpperCase()
+
+        console.log("strContainer after +=", strContainer);
+
     }
 
-    let sum = 0;
-
-    for (let i = 0; i < arr.length; i++) {
-        let currNum = arr[i];
-
-        sum += currNum;
-    }
-
-    return sum / arr.length;
+    return strContainer.toUpperCase();
 };
 
-console.log(avgVal([5, 10])); // 7.5
-console.log(avgVal([3, 7, 2, 1, 2])); // 3
-console.log(avgVal([])); // null
-
-
-// Write a function removeEWords(sentence) that accepts a sentence string as an arg. The function should return a new string, containing only the words that don't have the letter "e" in them.
-
-// GOAL: new string
-
-function removeEWords(sentence){
-    let sentenceArr = sentence.split(" ")
-    // console.log(sentenceArr, "sentenceArr")
-    let wantedWords = []
-    for ( let i = 0; i < sentenceArr.length; i++){
-        let currWord = sentenceArr[i]
-        if (!currWord.toLowerCase().includes('e')){
-            // console.log("this word has the letter e!", currWord)
-            wantedWords.push(currWord)
-            // console.log("this is our new array", wantedWords)
-        }
-    }
-    let newSentence = wantedWords.join(" ")
-    return newSentence
-}
-
-console.log(removeEWords('What time is it everyone?')); // 'What is it'
-console.log(removeEWords('Enter the building')); // 'building'
+// console.log(initials("anna paschall")); // 'AP'
+// console.log(initials("Mary La Grange")); // 'MLG'
+// console.log(initials("brian crawford scott")); // 'BCS'
+console.log(initials("Benicio Monserrate Rafael del Toro Sánchez")); // 'BMRDTS'
