@@ -175,3 +175,121 @@ Write a function choosePrimes(nums) that takes in an array of numbers as args.
 // // console.log(longestWord('where did everyone go')); // 'everyone'
 // console.log(longestWord('prefer simplicity over complexity')); // 'simplicity'
 // // console.log(longestWord('')); // ''
+
+/**
+ * !Hipsterfy
+ * Write a function hipsterfy(sentence) that takes in a sentence string and
+ * returns the sentence where every word is missing its last vowel.
+ */
+
+// let removeLastVowel = function (word) {
+//     let vowels = "aeiouAEIOU";
+//     let finalStr = "";
+
+//     for (let i = word.length - 1; i >= 0; i--) {
+//         // i = 1 // i = 0
+//         let currChar = word[i];
+
+//         if (vowels.includes(currChar)) {
+//             let startOfStr = word.slice(0, i);
+//             let endOfStr = word.slice(i + 1);
+//             finalStr += startOfStr + endOfStr;
+
+//             return finalStr;
+//         }
+//     }
+// };
+
+// let hipsterfy = function (sentence) {
+//     let sentArr = sentence.split(" ");
+
+//     for (let i = 0; i <= sentArr.length - 1; i++) {
+//         let currWord = sentArr[i];
+//         let removedVersion = removeLastVowel(currWord);
+
+//         sentArr[i] = removedVersion;
+//     }
+
+//     return sentArr.join(" ");
+// };
+
+// console.log(hipsterfy("When should everyone wake up?")); // 'Whn shold everyon wak p?'
+// console.log(hipsterfy("get ready for our bootcamp")); // 'gt redy fr or bootcmp'
+// console.log(hipsterfy("panthers are great animals")); // 'panthrs ar gret animls'
+
+/**
+ * Write a function uncompress(str) that takes in a "compressed" string as an arg. 
+ * A compressed string consists of a character immediately followed by the 
+ * number of times it appears in the "uncompressed" form. The function should 
+ * return the uncompressed version of the string. See the examples. 
+
+Hint: you can use the built-in Number function should convert a numeric string into the number type. For example. Number("4") // => 4
+ */
+
+// even number index === string
+
+// odd number index === number
+// let uncompress = function (str) {
+//     let finalStr = "";
+
+//     for (let i = 0; i < str.length; i += 2) {
+//         //i will be an even number, meaning a string
+//         let currString = str[i];
+//         // i + 1 will be an odd number, meaning a number
+//         let currNumber = Number(str[i + 1]);
+
+//         for (let j = 0; j < currNumber; j++) {
+//             finalStr += currString;
+//         }
+
+//     }
+
+//     return finalStr;
+// };
+
+// console.log(uncompress("x3y4z2")); // 'xxxyyyyzz'
+// console.log(uncompress('a5b2c4z1')); // 'aaaaabbccccz'
+// console.log(uncompress('b1o2t1')); // 'boot'
+
+/**
+ * !Fizz Buzz Recall
+Write a function fizzBuzz(max) that accepts a number as an arg. The function 
+should return an array containing all positive numbers less than max that are 
+divisible by either 3 or 5, but not both.
+ */
+
+let fizzBuzz = function (max) {
+    let finalArr = [];
+
+    for (let i = 1; i < max; i++) {
+        //! 1st
+        // if (i % 3 === 0) {
+        //     if (i % 5 !== 0) {
+        //         finalArr.push(i);
+        //     }
+        // } else if (i % 5 === 0) {
+        //     if (i % 3 === 0) {
+        //         finalArr.push(i);
+        //     }
+        // }
+        //! 2nd
+        // if (!(i % 3 === 0 && i % 5 === 0)) {
+        //     if (i % 3 === 0) {
+        //         finalArr.push(i);
+        //     } else if (i % 5 === 0) {
+        //         finalArr.push(i);
+        //     }
+        // }
+        //! 3rd
+        if (i % 15 !== 0 && (i % 3 === 0 || i % 5 == 0)) {
+            finalArr.push(i);
+        }
+    }
+
+    return finalArr;
+};
+
+console.log(fizzBuzz(12)); // [ 3, 5, 6, 9, 10 ]
+console.log(fizzBuzz(20)); // [ 3, 5, 6, 9, 10, 12, 18 ]
+
+
