@@ -85,6 +85,72 @@
 
 // printTheThing(5 + 5)
 
+/**
+ * Choose Primes
+Write a function choosePrimes(nums) that takes in an array of numbers as args.
+ The function should return a new array containing the primes from the original
+  array. A prime number is a number that is only divisible by 1 and itself.
+   Hint: consider creating a helper function to check if a number is prime!
+ */
+
+/** Plan for choose primes
+ * Create new array
+ * Loop through passed in array, look at each num
+ * check if num is prime
+    if it is, push to newArr
+    else ignore
+ */
+// 0, 1, 2 are scary edge cases
+
+// let isThisNumPrime = function (num) {
+//     if (num < 2) {
+//         return false;
+//     }
+
+//     // if (num === 2) {
+//     //     return true;
+//     // }
+
+//     for (let i = 2; i < num; i++) {
+//         // if the number is divisible by i, it's not prime, so false
+//         if (num % i === 0) {
+//             return false;
+//         }
+//     }
+
+//     return true;
+// };
+
+// let choosePrimes = function (nums) {
+//     let newArray = [];
+
+//     for (let i = 0; i < nums.length; i++) {
+//         let currNum = nums[i];
+//         if (isThisNumPrime(currNum)) {
+//             newArray.push(currNum);
+//         }
+//     }
+//     return newArray;
+// };
+
+// let choosePrimes = function (nums) {
+//     let newArr = [];
+
+//     for (let i = 0; i < nums.length; i++) {
+//         let currNum = nums[i];
+
+//         if (isThisNumPrime(currNum)) {
+//             newArr.push(currNum);
+//         }
+//     }
+
+//     return newArr;
+// };
+
+// console.log(choosePrimes([36, 48, 9, 13, 19])); // [ 13, 19 ]
+// console.log(choosePrimes([5, 6, 4, 11, 2017])); // [ 5, 11, 2017 ]
+
+
 
 // // Write a function longestWord(sentence) that takes in a sentence string as an argument. The function should return the longest word in the sentence. If there is more than one "longest word", return the first of these instances.
 
