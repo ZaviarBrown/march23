@@ -26,14 +26,29 @@ let result4 = count(['follow', 'the', 'yellow', 'brick', 'road'], function (str)
 console.log(result4); // 0
 *******************************************************************************/
 
+/** Count vowels in a string
+    // create a counter variable = 0
+    // loop through string
+    // if currentCharacter is a vowel, counter ++
+    // (if vowels.includes(currString))
+ */
+
+let myHelper = function (n) {
+    return n % 2 === 0;
+};
+
 function count(array, cb) {
-    let numTrue = 0;
-    array.forEach(function (el) {
-        if (cb(el)) {
-            numTrue++;
+    let counter = 0;
+    for (let i = 0; i < array.length; i++) {
+        let curr = array[i];
+        //  cb(curr) => true // true === true => true
+        // if (cb(curr) === true) {
+        if (cb(curr)) {
+            counter++;
         }
-    });
-    return numTrue;
+    }
+
+    return counter;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/

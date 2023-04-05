@@ -22,13 +22,25 @@ console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasA)); // [ 'depth'
 *******************************************************************************/
 
 function reject(array, cb) {
-    let items = [];
-    array.forEach(function (el, i) {
-        if (cb(el) === false) {
-            items.push(el);
+    // create empty array (finalArray) to return later
+    let finalArray = [];
+
+    // iterate through passed in array
+    for (let i = 0; i < array.length; i++) {
+        // create currVal = array[i]
+        let currVal = array[i];
+
+        // give currVal to cb
+        let result = cb(currVal);
+
+        // if false, push to finalArray
+        if (result === false) {
+            finalArray.push(currVal);
         }
-    });
-    return items;
+        // else, don't do a thing
+    }
+
+    return finalArray;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/

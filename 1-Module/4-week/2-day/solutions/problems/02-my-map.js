@@ -17,12 +17,17 @@ console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 *******************************************************************************/
 
 function myMap(array, cb) {
-    // Your code here
+    let mapped = [];
+    for (let i = 0; i < array.length; i++) {
+        let ele = array[i];
+        mapped.push(cb(ele));
+    }
+    return mapped;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = myMap;
-} catch(e) {
+} catch (e) {
     return null;
 }

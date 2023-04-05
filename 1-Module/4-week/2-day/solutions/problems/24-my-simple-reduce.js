@@ -31,12 +31,16 @@ console.log(result3); // 8
 *******************************************************************************/
 
 function mySimpleReduce(array, cb) {
-  // Your code here
+    let accumulator = array[0];
+    array.slice(1).forEach(function (el) {
+        accumulator = cb(accumulator, el);
+    });
+    return accumulator;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
-  module.exports = mySimpleReduce;
+    module.exports = mySimpleReduce;
 } catch (e) {
-  return null;
+    return null;
 }
