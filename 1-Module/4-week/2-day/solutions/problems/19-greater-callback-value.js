@@ -19,12 +19,19 @@ console.log(greaterCallbackValue(9, Math.sqrt, doubler));   // 18
 *******************************************************************************/
 
 function greaterCallbackValue(val, cb1, cb2) {
-  // Your code here
+    let res1 = cb1(val);
+    let res2 = cb2(val);
+
+    if (res1 > res2) {
+        return res1;
+    } else {
+        return res2;
+    }
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
-  module.exports = greaterCallbackValue;
+    module.exports = greaterCallbackValue;
 } catch (e) {
-  return null;
+    return null;
 }

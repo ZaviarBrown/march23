@@ -17,13 +17,28 @@ console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 *******************************************************************************/
 
 function myMap(array, cb) {
-    let mapped = [];
+    let finalArray = [];
+
     for (let i = 0; i < array.length; i++) {
-        let ele = array[i];
-        mapped.push(cb(ele));
+        let currentValue = array[i];
+        let newValue = cb(currentValue);
+
+        finalArray.push(newValue);
     }
-    return mapped;
+
+    return finalArray;
 }
+
+// //! Cleaner solution
+// function myMap(array, cb) {
+//     let finalArray = [];
+
+//     for (let i = 0; i < array.length; i++) {
+//         finalArray.push(cb(array[i]));
+//     }
+
+//     return finalArray;
+// }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {

@@ -23,15 +23,35 @@ let result3 = mySome(['soup', 'noodles', 'bike', 'ship'], function(ele) {
 console.log(result3);   // true
 *******************************************************************************/
 
-function mySome(array, cb) {
-    for (let i = 0; i < array.length; i++) {
-        let ele = array[i];
-        if (cb(ele, i)) {
-            return true;
+let mySome = (array, cb) => {
+    let haveWeSeenTrueYet = false;
+
+    array.forEach((currVal, i) => {
+        if (cb(currVal, i)) {
+            haveWeSeenTrueYet = true;
         }
-    }
-    return false;
-}
+    });
+
+    return haveWeSeenTrueYet;
+};
+
+//! This is fine
+// function mySome(array, cb) {
+//     // loop through the array and look at each element
+
+//     for (let i = 0; i < array.length; i++) {
+//         // pass each element & each index into the cb
+//         let currVal = array[i];
+//         let result = cb(currVal, i);
+//         // if I ever see true, return true
+//         if (result) {
+//             return true;
+//         }
+//     }
+//     // if I loop through everything and never see true, only then return false
+
+//     return false;
+// }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {

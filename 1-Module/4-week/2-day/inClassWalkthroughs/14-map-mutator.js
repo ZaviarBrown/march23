@@ -16,13 +16,32 @@ mapMutator(arr2, function (el, i) {
     return el * i;
 });
 console.log(arr2); // [ 0, 9, 20 ]
-*******************************************************************************/
+
+* arr => [1, 2, 3]
+* arr[0] === 1
+*! arr[0] = 50
+* arr[0] === 50
+* arr => [50, 2, 3]
+*/
 
 function mapMutator(array, cb) {
     for (let i = 0; i < array.length; i++) {
-        array[i] = cb(array[i], i, array);
+        array[i] = cb(array[i], i);
     }
+
+    return array;
 }
+
+// function mapMutator(array, cb) {
+//     for (let i = 0; i < array.length; i++) {
+//         let curr = array[i];
+//         let newVal = cb(curr, i);
+
+//         array[i] = newVal;
+//     }
+
+//     return array;
+// }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {

@@ -28,12 +28,18 @@ console.log(result4); // true
 *******************************************************************************/
 
 function exactly(array, num, cb) {
-  // Your code here
+    let count = 0;
+    array.forEach(function (el) {
+        if (cb(el)) {
+            count++;
+        }
+    });
+    return count === num;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
-  module.exports = exactly;
-} catch(e) {
-  return null;
+    module.exports = exactly;
+} catch (e) {
+    return null;
 }

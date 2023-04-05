@@ -38,12 +38,18 @@ console.log(result6);   // true
 *******************************************************************************/
 
 function one(array, cb) {
-  // Your code here
+    let count = 0;
+    array.forEach(function (el, i) {
+        if (cb(el, i, array) === true) {
+            count++;
+        }
+    });
+    return count === 1;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
-  module.exports = one;
-} catch(e) {
-  return null;
+    module.exports = one;
+} catch (e) {
+    return null;
 }
