@@ -15,11 +15,11 @@ let result3 = addFive(37); // returns 42
 
 ***********************************************************************/
 
-// Your code here
+let addFive = (num) => num + 5;
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
-  module.exports = addFive;
+    module.exports = addFive;
 } catch (e) {
-  module.exports = null;
+    module.exports = null;
 }

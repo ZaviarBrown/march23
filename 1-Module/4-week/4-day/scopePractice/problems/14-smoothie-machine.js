@@ -22,12 +22,19 @@ console.log(smoothie2("pineapple"));
 // prints "I'm having a smoothie with apples and bananas and berries and pineapple"
 ***********************************************************************/
 
-// Your code here
+const smoothieMachine = (...ingredients) => {
+    return function (...moreIngredients) {
+        // ingredients = ingredients.concat(moreIngredients); // this works but...
+        ingredients = [...ingredients, ...moreIngredients]; // ...this is cooler 😎
+
+        return "I'm having a smoothie with " + ingredients.join(" and ");
+    };
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
-  module.exports = smoothieMachine;
+    module.exports = smoothieMachine;
 } catch (e) {
-  // catch the ref err
-  module.exports = null;
+    // catch the ref err
+    module.exports = null;
 }

@@ -22,67 +22,24 @@ Example 3:
 
 Example 4:
   let threeDays = countDownTimer(3); // returns a function
-let versionOne = threeDays()); // returns a function
-let versionTwo = versionOne()); // returns a function
-let versionThree = versionTwo()); // prints "Happy New Year!"
+  console.log(threeDays()); // returns a function
+  console.log(threeDays()); // returns a function
+  console.log(threeDays()); // prints "Happy New Year!"
 
 ***********************************************************************/
 
-const countDownTimer = (n) => {
-    if (!n) {
-        return "Happy New Year!";
-    }
-
-    return () => {
-        n--;
-        if (!n) {
+function countDownTimer(num) {
+    if (num === 0) return "Happy New Year!";
+    const _count = () => {
+        num -= 1;
+        if (num <= 0) {
             return "Happy New Year!";
         } else {
-            return () => {};
+            return _count;
         }
     };
-};
-
-// const countDownTimer = (n) => {
-//     if (n <= 0) {
-//         return "Happy New Year!";
-//     }
-//     let init = n;
-//     const happy = () => {
-//         n--;
-//         if (init === 0 || n === 0) {
-//             return "Happy New Year!";
-//         } else {
-//             return happy
-//         }
-//     };
-//     return happy;
-// };
-
-// function countDownTimer(n) {
-//     if (n <= 0) {
-//         return "Happy New Year!";
-//     }
-//     let count = n;
-//     return function () {
-//         if (count <= 0) {
-//             return "Happy New Year!";
-//         } else {
-//             count--;
-//             return countDownTimer(count);
-//         }
-//     };
-// }
-
-// let threeDays = countDownTimer(3); // returns a function
-// let versionOne = threeDays(); // returns a function
-// console.log(versionOne);
-
-// let versionTwo = versionOne(); // returns a function
-// console.log(versionTwo);
-
-// let versionThree = versionTwo(); // prints "Happy New Year!"
-// console.log(versionThree);
+    return _count;
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

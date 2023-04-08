@@ -17,49 +17,14 @@ sandwich2("pb") // => "One sandwich with tomato and pb"
 
 ***********************************************************************/
 
-const sandwichMaker = () => {
-    let startingString = "One sandwich with tomato";
+function sandwichMaker() {
+    let order = "One sandwich with tomato";
 
-    return (ingredient) => {
-        startingString = startingString + " and " + ingredient;
-        return startingString;
+    return function (food) {
+        order = order + " and " + food;
+        return order;
     };
-};
-
-// const sandwichMaker = () => {
-//     let toppingArray = ["One sandwich with tomato"];
-//     return (ingredient) => {
-//         toppingArray.push(ingredient);
-//         return toppingArray.join(" and ");
-//     };
-// };
-
-// const sandwichMaker = () => {
-//     let startingString = "One sandwich with tomato";
-
-//     return (ingredient) => {
-//         return startingString += " and " + ingredient;
-//     };
-// };
-
-
-
-// let sandwich = sandwichMaker(); // => returns a function
-// console.log(sandwich("spinach")); // => "One sandwich with tomato and spinach"
-// console.log(sandwich("jelly")); // => "One sandwich with tomato and spinach and jelly"
-// console.log(sandwich("bread")); // => "One sandwich with tomato and spinach and jelly and bread"
-
-// let sandwich2 = sandwichMaker(); // => returns a function
-// console.log(sandwich2("pb")); // => "One sandwich with tomato and pb"
-
-// console.log(sandwich("bread"));
-// const innerFunc = () => {};
-
-// return innerFunc;
-
-// return function () {
-
-// }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

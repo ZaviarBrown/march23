@@ -15,10 +15,30 @@ hidden2(); // returns 1
 
 ***********************************************************************/
 
-function hiddenCounter() {
+const hiddenCounter = () => {
     let count = 0;
-    return () => (count += 1);
-}
+
+    console.log("count was just created! =>", count);
+
+    return () => {
+        count++;
+        console.log("count was just incremented by 1 =>", count);
+
+        return count;
+    };
+};
+
+let hidden1 = hiddenCounter(); //returns a function
+
+console.log(hidden1()); // returns 1
+console.log(hidden1()); // returns 2
+
+// let hidden1 = function () {
+//     count++;
+//     console.log("count was just incremented by 1 =>", count);
+
+//     return count;
+// };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

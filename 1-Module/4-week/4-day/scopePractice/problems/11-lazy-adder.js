@@ -22,13 +22,19 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   fat-arrow function
 ***********************************************************************/
 
-// Your code here
+function lazyAdder(firstNum) {
+    return function (secondNum) {
+        return function (thirdNum) {
+            return firstNum + secondNum + thirdNum;
+        };
+    };
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
-  module.exports = lazyAdder;
+    module.exports = lazyAdder;
 } catch (e) {
-  // catch the ref err
-  module.exports = null;
+    // catch the ref err
+    module.exports = null;
 }
