@@ -19,10 +19,6 @@ const facebookUsers = [
 filterUserProfiles(facebookUsers, (user) => user.age > 30); // ["Mary", "Judy", "Mike"]
 filterUserProfiles(facebookUsers, (user) => user.state === "New York"); // ["Mike"]
 ***********************************************************************/
-// //! Silly one line
-// const filterUserProfiles = (users, cb) =>
-//     users.map((el) => (cb(el) ? el.name : null)).filter((el) => el);
-
 //! My recommendation
 function filterUserProfiles(users, filter) {
     // create finalArr
@@ -42,6 +38,23 @@ function filterUserProfiles(users, filter) {
 
     return finalArr;
 }
+
+// //! Silly one line
+// const filterUserProfiles = (users, cb) =>
+//     users.map((el) => (cb(el) ? el.name : null)).filter((el) => el);
+
+// //! Better one line
+// const filterUserProfiles = (users, filter) =>
+//     users.filter(filter).map((user) => user.name);
+
+// //! One line on multiple lines
+// function filterUserProfiles(users, filter) {
+//     //use the filter to create a new array of the user objects that pass the filter test
+//     const filteredUsers = users.filter(filter);
+//     //use map to extract the names of the filtered user objects
+//     const filteredNames = filteredUsers.map((user) => user.name);
+//     return filteredNames;
+// }
 
 // //! Using all our fancy tools
 // const filterUserProfiles = (users, filter) => {
