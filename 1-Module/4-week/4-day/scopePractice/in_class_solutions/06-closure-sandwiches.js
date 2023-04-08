@@ -17,14 +17,24 @@ sandwich2("pb") // => "One sandwich with tomato and pb"
 
 ***********************************************************************/
 
-function sandwichMaker() {
-    let order = "One sandwich with tomato";
 
-    return function (food) {
-        order = order + " and " + food;
-        return order;
-    };
-}
+
+// const sandwichMaker = () => {
+//     let startingString = "One sandwich with tomato";
+
+//     const sandwich = (ingredient) => {
+//         startingString += " and " + ingredient;
+//         return startingString;
+//     };
+
+//     return sandwich;
+// };
+
+const sandwichMaker = () => {
+    let startingString = "One sandwich with tomato";
+
+    return (ingredient) => (startingString += " and " + ingredient);
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

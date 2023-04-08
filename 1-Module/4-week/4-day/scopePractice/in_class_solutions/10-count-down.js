@@ -28,18 +28,53 @@ Example 4:
 
 ***********************************************************************/
 
-function countDownTimer(num) {
-    if (num === 0) return "Happy New Year!";
-    const _count = () => {
-        num -= 1;
-        if (num <= 0) {
+// const countDownTimer = (n) => {
+//   let count = 0
+
+//   if (n >= 0) {
+//     return func = () => {
+//       count++
+//       for (let i = count; i <= n; i++) {
+//         if (i === n) return 'Happy New Year!'
+//         return func
+//       }
+//     }
+//   }
+// }
+
+// const countDownTimer = (n) => {
+//     if (n === 0) {
+//         return "Happy New Year!";
+//     }
+
+//     return () => {
+//         n--;
+
+//         if (n <= 0) {
+//             return "Happy New Year!";
+//         } else {
+//             return () => {};
+//         }
+//     };
+// };
+
+const countDownTimer = (n) => {
+    if (n === 0) {
+        return "Happy New Year!";
+    }
+
+    const isItNewYearYet = () => {
+        n--;
+
+        if (n <= 0) {
             return "Happy New Year!";
         } else {
-            return _count;
+            return isItNewYearYet;
         }
     };
-    return _count;
-}
+
+    return isItNewYearYet;
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

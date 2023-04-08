@@ -22,13 +22,21 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   fat-arrow function
 ***********************************************************************/
 
-function lazyAdder(firstNum) {
-    return function (secondNum) {
-        return function (thirdNum) {
+// const lazyAdder = (firstNum) => (secondNum) => (thirdNum) => firstNum + secondNum + thirdNum;
+
+const lazyAdder = (firstNum) => {
+    // this is a function 
+    // all this space is open to lazyAdder
+
+    return (secondNum) => {
+        // this space is the area of the second function
+        // and it will return the line below
+        return (thirdNum) => {
+            // this space is third func
             return firstNum + secondNum + thirdNum;
         };
     };
-}
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

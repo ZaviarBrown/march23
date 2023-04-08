@@ -18,12 +18,26 @@ console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 
 ***********************************************************************/
 
-let arrowMyMap = (array, cb) => {
-    let mapped = [];
+const arrowMyMap = (arr, cb) => {
+    const finalArr = [];
 
-    array.forEach((el) => mapped.push(cb(el)));
-    return mapped;
+  arr.forEach((el) => {
+        let result = cb(el);
+
+        finalArr.push(result);
+    });
+
+    // for (let i = 0; i < arr.length; i++) {
+    //     let el = arr[i]
+    // }
+
+    return finalArr;
 };
+
+// const yell = (el) => el.toUpperCase() + "!";
+
+// let result2 = arrowMyMap(["run", "Forrest"], yell);
+// console.log(result2); // [ 'RUN!', 'FORREST!' ]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

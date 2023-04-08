@@ -10,12 +10,17 @@ arrowAvgValue([2, 3, 7]); // => 4
 arrowAvgValue([100, 60, 64]); // => 74.66666666666667
 ***********************************************************************/
 
-// Your code here
+let arrowAvgValue = (array) => {
+    let sum = array.reduce((el, sum = 0) => (sum += el));
+
+    let avg = sum / array.length;
+    return avg;
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
-  module.exports = arrowAvgValue;
+    module.exports = arrowAvgValue;
 } catch (e) {
-  module.exports = null;
+    module.exports = null;
 }

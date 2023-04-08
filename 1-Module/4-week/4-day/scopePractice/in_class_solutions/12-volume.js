@@ -13,21 +13,31 @@ function returned by recVolume should continue to return the original volume.
 
 ***********************************************************************/
 
-function recVolume(height) {
-    let dimensions = [height];
-    const _measure = (num) => {
-        if (dimensions.length < 3) {
-            dimensions.push(num);
-        }
-        if (dimensions.length === 3) {
-            let sum = dimensions.reduce((acc, el) => (acc *= el));
-            return sum;
+const recVolume = (height) => {
+    const arrayOfMeasurements = [height];
+
+    return (lenOrWidth) => {
+        if (arrayOfMeasurements.length === 3) {
+            let product = 1;
+
+            for (let i = 0; i < arrayOfMeasurements.length; i++) {
+                product *= arrayOfMeasurements[i];
+            }
+
+            return product;
         } else {
-            return _measure;
+            arrayOfMeasurements.push(lenOrWidth);
+
+            if (arrayOfMeasurements.length === 3) {
+                return arrayOfMeasurements.reduce((prev, next) => {
+                    return prev * next;
+                }, 1);
+            } else {
+                return () => {};
+            }
         }
     };
-    return _measure;
-}
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

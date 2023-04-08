@@ -25,13 +25,24 @@ Example 3:
 
 ***********************************************************************/
 
-// Your code here
+function coinCollector(numCoins) {
+    let coins = [];
+    const _collect = (coin) => {
+        coins.push(coin);
+        if (coins.length >= numCoins) {
+            return coins;
+        } else {
+            return _collect;
+        }
+    };
+    return _collect;
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
-  module.exports = coinCollector;
+    module.exports = coinCollector;
 } catch (e) {
-  // catch the ref err
-  module.exports = null;
+    // catch the ref err
+    module.exports = null;
 }
