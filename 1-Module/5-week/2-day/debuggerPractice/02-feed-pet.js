@@ -8,19 +8,23 @@ of foods that you have fed that pet.
 */
 
 function feedPet(name) {
-  const foods = [];
-  return (food) => {
-    return "Fed " + name + " " + foods.push(food) + ".";
-  }
+    debugger;
+    const foods = [];
+    return (food) => {
+        debugger;
+        foods.push(food);
+        debugger;
+        return "Fed " + name + " " + foods.join(", ") + ".";
+    };
 }
 
-const feedHydra = feedPet('Hydra');
+const feedHydra = feedPet("Hydra");
 
-console.log(feedHydra('bones')); // Fed Hyrda bones.
-console.log(feedHydra('Hercules')); // Fed Hyrda bones, Hercules.
+console.log(feedHydra("bones")); // Fed Hyrda bones.
+console.log(feedHydra("Hercules")); // Fed Hyrda bones, Hercules.
 
-const feedHippogriff = feedPet('Hippogriff');
+const feedHippogriff = feedPet("Hippogriff");
 
-console.log(feedHippogriff('worms')); // Fed Hippogriff worms.
-console.log(feedHippogriff('crickets')); // Fed Hippogriff worms, crickets.
-console.log(feedHippogriff('chicken')); // Fed Hippogriff worms, crickets, chicken.
+console.log(feedHippogriff("worms")); // Fed Hippogriff worms.
+console.log(feedHippogriff("crickets")); // Fed Hippogriff worms, crickets.
+console.log(feedHippogriff("chicken")); // Fed Hippogriff worms, crickets, chicken.
