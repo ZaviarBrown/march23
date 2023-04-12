@@ -12,9 +12,10 @@ function cutestCat(cats) {
 
     while (i < cats.length) {
         const cat = cats[i];
-
-        if (cutest === undefined) { // if (!cutest) //? Same as the working code
-            cutest = cat
+        
+        if (cutest === undefined) {
+            // if (!cutest) //? Same as the working code
+            cutest = cat;
         } else if (cat.cuteness > cutest.cuteness) {
             debugger;
             cutest = cat;
