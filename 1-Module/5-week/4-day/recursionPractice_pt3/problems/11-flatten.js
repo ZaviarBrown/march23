@@ -62,6 +62,7 @@ const flatten = (arr) => {
     return finalArr;
 };
 
+// //! Terrible awful one line don't do this it's bad
 // const flatten = (arr) =>
 //     arr.length
 //         ? Array.isArray(arr[0])
@@ -88,7 +89,8 @@ const flatten = (arr) => {
 //     return flat;
 // }
 
-// //! Terrible awful one line don't do this it's bad
+// //!!!!!!!!! No wayyyy! Someone did this and I thought it was mine 😂
+// //! Nice job
 // function flatten(arr) {
 //     let newArr = [];
 //     if (arr.length === 0) return [];
