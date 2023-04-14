@@ -18,28 +18,28 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 // If I have an array, use flatten to flatten it
 // Look for anything that's NOT an array
 
-// //? --------------------------------------------------------------------
-// //? --------------------------------- Standard approach ---------------------------------
-// //? --------------------------------------------------------------------
+//? --------------------------------------------------------------------
+//? --------------------------------- Standard approach ---------------------------------
+//? --------------------------------------------------------------------
 
-// function flatten(arr) {
-//     debugger;
-//     let finalArr = [];
+function flatten(arr) {
+    debugger;
+    let finalArr = [];
 
-//     if (!arr.length) return finalArr;
+    if (!arr.length) return finalArr;
 
-//     arr.forEach((el) => {
-//         debugger;
-//         if (Array.isArray(el)) {
-//             const recursiveReturn = flatten(el);
-//             finalArr.push(...recursiveReturn);
-//         } else {
-//             finalArr.push(el);
-//         }
-//     });
+    arr.forEach((el) => {
+        debugger;
+        if (Array.isArray(el)) {
+            const recursiveReturn = flatten(el);
+            finalArr.push(...recursiveReturn);
+        } else {
+            finalArr.push(el);
+        }
+    });
 
-//     return finalArr;
-// }
+    return finalArr;
+}
 
 //? --------------------------------------------------------------------
 //? --------------------------------- Standard approach with concat ---------------------------------
@@ -61,7 +61,7 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 // }
 
 // //? --------------------------------------------------------------------
-// //? --------------------------------- This is possible for suresies ---------------------------------
+// //? --------------------------------- Hip hip hurray! We did it!!!! ---------------------------------
 // //? --------------------------------------------------------------------
 
 // function flatten(arr, i = 0, answer = []) {
@@ -74,8 +74,7 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 //         debugger;
 //         //rs = i++
 //         if (Array.isArray(arr[i])) {
-//             let curr = flatten(arr[i], 0, answer);
-//             answer.push(...curr);
+//             flatten(arr[i], 0, answer);
 //         } else {
 //             answer.push(arr[i]);
 //         }
@@ -87,24 +86,30 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 //     debugger;
 //     return flatten(arr, i, answer);
 // }
-// console.log(flatten([[1], 2, [3]])); // [1, 2, 3]
 
 // //? --------------------------------------------------------------------
-// //? --------------------------------- This is possible for suresies ---------------------------------
+// //? --------------------------------- Hah haa! We did it!!!! ---------------------------------
 // //? --------------------------------------------------------------------
 
 // function flatten(arr, fullArr = []) {
-//     if (arr === undefined || arr.length === 0) {
+
+//     if (arr.length === 0) {
+
 //         return fullArr;
 //     }
 
-//     if (typeof arr[0] === "number") {
-//         fullArr.push(arr[0]);
-//         arr.shift();
-//         return fullArr;
+//     let currVal = arr.shift();
+
+//     if (typeof currVal === "number") {
+
+//         fullArr.push(currVal);
+
+//         return flatten(arr, fullArr);
 //     } else {
-//         arr.shift();
-//         return flatten(arr[0], fullArr);
+
+//         flatten(currVal, fullArr);
+//         flatten(arr, fullArr);
+//         return fullArr;
 //     }
 // }
 
