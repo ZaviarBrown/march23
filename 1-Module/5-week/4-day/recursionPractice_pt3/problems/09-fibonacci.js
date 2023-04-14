@@ -48,41 +48,41 @@ fibonacci(4); // 3
 fibonacci(10); // 55
 ***********************************************************************/
 
-// //? Default param
-// const fibonacci = (n, fibSeq = [1, 1]) => {
-//     debugger;
-//     if (n === 1 || n === 2) {
-//         return 1;
-//     }
-
-//     // Base Case
-//     if (fibSeq.length === n) {
-//         return fibSeq.pop();
-//         // return fibSeq[fibSeq.length - 1];
-//     }
-
-//     // Rec Step
-//     const lastNum = fibSeq[fibSeq.length - 1];
-//     const secondToLastNum = fibSeq[fibSeq.length - 2];
-
-//     const newFibNum = lastNum + secondToLastNum;
-
-//     fibSeq.push(newFibNum);
-
-//     // Rec Case
-//     // console.log(fibSeq);
-//     return fibonacci(n, fibSeq);
-// };
-
-
-//! Classic approach
-const fibonacci = (n) => {
+//? Default param
+const fibonacci = (n, fibSeq = [1, 1]) => {
     debugger;
-    if (n <= 2) return 1;
+    if (n === 1 || n === 2) {
+        return 1;
+    }
 
-    return fibonacci(n - 1) + fibonacci(n - 2);
+    // Base Case
+    if (fibSeq.length === n) {
+        return fibSeq.pop();
+        // return fibSeq[fibSeq.length - 1];
+    }
+
+    // Rec Step
+    const lastNum = fibSeq[fibSeq.length - 1];
+    const secondToLastNum = fibSeq[fibSeq.length - 2];
+
+    const newFibNum = lastNum + secondToLastNum;
+
+    fibSeq.push(newFibNum);
+
+    // Rec Case
+    // console.log(fibSeq);
+    return fibonacci(n, fibSeq);
 };
-console.log(fibonacci(40)); // 55
+
+
+// //! Classic approach
+// const fibonacci = (n) => {
+//     debugger;
+//     if (n <= 2) return 1;
+
+//     return fibonacci(n - 1) + fibonacci(n - 2);
+// };
+// console.log(fibonacci(40)); // 55
 
 // const fibonacci = (n) => {
 //     // base case - we want to work towards the number being
