@@ -62,6 +62,7 @@ const fibonacci = (n, fibSeq = [1, 1]) => {
     }
 
     // Rec Step
+    debugger;
     const lastNum = fibSeq[fibSeq.length - 1];
     const secondToLastNum = fibSeq[fibSeq.length - 2];
 
@@ -74,6 +75,7 @@ const fibonacci = (n, fibSeq = [1, 1]) => {
     return fibonacci(n, fibSeq);
 };
 
+fibonacci(10); // 55
 
 // //! Classic approach
 // const fibonacci = (n) => {
