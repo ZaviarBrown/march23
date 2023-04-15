@@ -31,17 +31,81 @@ you will get 'true' because we are comparing numbers.
 let x = [1, 2, 3];
 let y = x.slice();
 console.log(x[0] === y[0]) // true
+
+
+const arr1 = [1, 2, 3];
+const arr2 = [[1], [2]];
+const arr3 = [[1], [2]];
+
+const arr4 = arr3.slice()
+
+console.log(arr4 === arr3)
+console.log(arr4[0] === arr3[0]);
+arr4[0].pop()
+
+console.log(arr3)
+console.log(arr2 === arr3);
 ***********************************************************************/
 
+//? --------------------------------------------------------------------
+//? --------------------------------- forEach ---------------------------------
+//? --------------------------------------------------------------------
+const deepDup = (arr) => {
+    const newArr = [];
 
-function deepDup(arr) {
-  // Your code here
-}
+    // Implied Base Case - Iterating through it all
+    arr.forEach((el) => {
+        if (Array.isArray(el)) {
+            // Recursive Step & Case
+            const recursiveReturn = deepDup(el);
+            newArr.push(recursiveReturn);
+        } else {
+            // Recursive Step
+            newArr.push(el);
+        }
+    });
 
+    // Base case return
+    return newArr;
+};
 
+// //? --------------------------------------------------------------------
+// //? --------------------------------- for loop ---------------------------------
+// //? --------------------------------------------------------------------
+
+// function deepDup(arr) {
+//     debugger;
+//     let deepCopy = [];
+//     if (arr.length === 0) return arr;
+//     for (let i = 0; i < arr.length; i++) {
+//         debugger
+//         const el = arr[i];
+//         if (Array.isArray(el)) deepCopy.push(deepDup(el));
+//         else deepCopy.push(el);
+//     }
+//     return deepCopy;
+// }
+
+// //? --------------------------------------------------------------------
+// //? --------------------------------- map ---------------------------------
+// //? --------------------------------------------------------------------
+
+// const deepDup = (arr) =>
+//     arr.map((el) => {
+//         if (Array.isArray(el)) return deepDup(el);
+//         else return el;
+//     });
+
+//? --------------------------------- invocations ---------------------------------
+
+// let arr = [[1], [2, [3]]];
+// duped = deepDup(arr); // [[1], [2, [3]]]
+// arr[0] === duped[0]; // false
+// arr[1] === duped[1]; // false
+// arr[1][1] === duped[1][1]; // false
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
-  module.exports = deepDup;
+    module.exports = deepDup;
 } catch (e) {
-  module.exports = null;
+    module.exports = null;
 }
