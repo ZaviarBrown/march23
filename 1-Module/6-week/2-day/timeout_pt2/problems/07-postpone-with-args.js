@@ -61,6 +61,13 @@ function postponeWithArgs(cb, delay) {
 //     };
 // }
 
+// //! One line version
+
+// const postponeWithArgs =
+//     (cb, delay) =>
+//     (...args) =>
+//         setTimeout(cb, delay, ...args);
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
     module.exports = postponeWithArgs;
