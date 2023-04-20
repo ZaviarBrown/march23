@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "chalk-rainbow": "^1.0.0"
+  }
+}
