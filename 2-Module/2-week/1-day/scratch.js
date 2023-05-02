@@ -1,22 +1,72 @@
-// class Test {
-//   testFunc() {
-//     debugger;
+// // class Dog {
+// //     constructor(name) {
+// //         this.name = name;
+// //     }
+
+// //     changeName() {
+// //         this.name = 'bob'
+// //     }
+// // }
+
+// // let fido = new Dog('fido');
+// // let apollo = new Dog('apollo');
+
+// // // fido.changeName()
+
+// // // console.log(fido)
+// // // console.log(apollo)
+
+// // class Cat {
+// //     constructor(name, sound) {
+// //         this.name = name;
+// //         this.sound = sound;
+// //     }
+
+// //     makeSound() {
+// //         console.log(this.sound)
+// //     }
+// // }
+
+// // let cat1 = new Cat('whiskers', 'meow');
+// // console.log(cat1)
+// // let fakeCat = new Cat('tiger', 'roar');
+
+// // cat1.makeSound()
+// // fakeCat.makeSound()
+
+// // const cat1 = {
+// //     name: 'whiskers',
+// //     sound: 'meow',
+// //     makeSound() {
+// //         console.log(this.sound)
+// //     }
+// // }
+
+// // console.log(cat1.name)
+// cat1.makeSound()
+// console.log(cat1)
+
+// console.log(this)
+// console.log(addNums(1, 2))
+
+// function addNums(x, y) {
 //     console.log(this)
-//     console.log(`this is equal to test1: ${this === test1}`);
-//   }
+//     return x + y
 // }
 
-// const test1 = new Test();
-// Calling the method on the instance
-test1.testFunc(); // true
-// Calling the method outside the class
-const test1Func = test1.testFunc; 
-test1Func(); // false
-// Calling the method as a callback
-setTimeout(test1.testFunc, 1000); // false
+// console.log(this)
 
-// Using this in Function Declaration Syntax
-function someFunc() {
-  console.log(this);
-}
-someFunc(); // Global Object
+// globalThis.newName = 'anthony'
+
+// console.log(globalThis)
+
+// "use strict";
+// let mistypeVariable;
+
+// // Assuming no global variable mistypeVarible exists
+// // this line throws a ReferenceError due to the
+// // misspelling of "mistypeVariable" (lack of an "a")
+// mistypeVarible = 17;
+
+// console.log(mistypeVariable)
+// console.log(globalThis)
