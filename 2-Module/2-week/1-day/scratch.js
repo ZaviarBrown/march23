@@ -1,22 +1,89 @@
-// class Test {
-//   testFunc() {
-//     debugger;
+"use strict";
+
+function hello() {
+    console.log(this);
+}
+
+hello(); // undefined
+
+// "use strict";
+
+// function addNum(x, y) {
 //     console.log(this)
-//     console.log(`this is equal to test1: ${this === test1}`);
-//   }
+//     return x + y
 // }
 
-// const test1 = new Test();
-// Calling the method on the instance
-test1.testFunc(); // true
-// Calling the method outside the class
-const test1Func = test1.testFunc; 
-test1Func(); // false
-// Calling the method as a callback
-setTimeout(test1.testFunc, 1000); // false
+// addNum(1, 2)
 
-// Using this in Function Declaration Syntax
-function someFunc() {
-  console.log(this);
-}
-someFunc(); // Global Object
+// let variable = 5;
+
+// setTimeout = 10
+
+// varible = 10
+
+// console.log(varible)
+
+// console.log(globalThis)
+
+// setTimeout(() => console.log('hi'), 1000)
+
+// class Dog {
+//     constructor(name) {
+//         this.name = name;
+
+//     }
+
+//     printName() {
+//         console.log(this.name)
+//     }
+
+//     changeName(newName) {
+//         this.name = newName;
+//     }
+
+// }
+
+// const fido = new Dog('fido');
+// const apollo = new Dog('apollo')
+
+// fido.printName();
+// console.log(fido)
+// fido.name = 'kirin'
+// fido.changeName('Kirin')
+// fido.printName();
+
+// console.log(apollo)
+
+// console.log(fido)
+// console.log(apollo)
+
+// fido.printName()
+// apollo.printName()
+
+// console.log(Object.has(apollo))
+
+// const fido = {
+//     name: 'fido',
+//     printName() {
+//         console.log(fido.name)
+//     }
+// }
+
+// console.log(fido)
+// fido.printName()
+
+// globalThis.testName = 'Anthony'
+
+// function addNum(x, y) {
+//     console.log(this)
+//     return x + y
+// }
+
+// console.log(addNum(1, 2))
+
+// function addNum(x, y) {
+//     console.log(this)
+//     return x + y
+// }
+
+// console.log(globalThis)
