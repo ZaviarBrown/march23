@@ -1,51 +1,150 @@
-class Test {
-  testFunc(name, num) {
-    console.log(name, num)
-    console.log(this === test1);
-  }
-}
+// class Cat {
+//     speak(sound = "meow") {
+//         console.log(this);
+//         console.log(sound);
+//     }
 
-const test1 = new Test();
+//     speakSpecific(sound) {
+//         console.log(this);
+//         this.speak(sound);
+//     }
 
-// setTimeout(test1.testFunc.bind(test1, "Mylo", 3), 1000); // wait 1 second, true
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+// let cat = new Cat("cat");
+// let otherCat = new Cat("otherCat");
 
-/* 
-Using this in Function Declaration Syntax
-Could I make `this` equal to test1 in this function?
-*/
-// function someFunc() {
-//   console.log(this);
+// cat.speak(); // 'meow'
+// otherCat.speak(); // 'meow'
+// // cat.speakSpecific("ayyeee lmao"); // 'ayyeee lmao'
+
+// const mySpeak = cat.speak;
+// const mySpecific = cat.speakSpecific;
+
+// // console.log(mySpeak); // [Function: speak]
+// // console.log(mySpecific); // [Function: speakSpecific]
+
+// mySpeak("still works"); // 'still works'
+// mySpecific("wait what happened"); // TypeError
+
+// class Cat {
+//     speak(sound = "meow") {
+//         console.log(this);
+//         console.log(sound);
+//     }
+
+//     speakSpecific(sound) {
+//         console.log(this);
+//         this.speak(sound);
+//     }
+
+//     constructor(name) {
+//         this.name = name;
+//     }
 // }
 
-// someFunc.call(test1); // (undefined) Test {...}
+// let cat = new Cat("Bind Kitty");
+// let otherCat = new Cat("Other Cat");
 
+// const mySpecific = cat.speakSpecific;
 
+// const boundForever = mySpecific.bind(cat, "I'll never die");
+// boundForever("hey");
+// boundForever("ggez");
 
-
-// function greeting(...messages) {
-//   return messages.map((message) => {
-//     return `${this.firstName} says ${message}`;
-//   });
-// }
-
-// const derek = {
-//   firstName: 'Derek',
+// const printStr = function (str) {
+//     console.log(str);
 // };
 
-// const derekMessages = greeting.bind(derek, 'Hello class!');
-// console.log(derekMessages('Goodbye class!'));
+// const printZ = printStr.bind(null, "Zaviar");
+// const printSomeOtherThing = printStr.bind(null);
 
-class Fruit {
-  constructor(name) {
-    this.name = name;
-  }
+// console.log(printZ);
+// console.log(printSomeOtherThing);
 
-  eat = () => {
-    console.log(`${this.name} has a bite mark`);
-  };
-}
+// const someFunc = function (num1, num2) {
+//     console.log(num1, num2);
+// };
 
-const apple = new Fruit('apple');
-const eat = apple.eat;
-eat();
-setTimeout(eat, 1000);
+// const startWithOne = someFunc.bind(null, 1);
+
+// startWithOne(50);
+// startWithOne(100);
+// startWithOne(32);
+// startWithOne(33);
+// startWithOne(245);
+
+// class Cat {
+//     speak(sound = "meow") {
+//         // console.log(this);
+//         console.log(sound);
+//     }
+
+//     speakSpecific(sound) {
+//         // console.log(this);
+//         this.speak(sound);
+//     }
+
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+
+// let cat = new Cat("Bind Kitty");
+
+// const mySpecific = cat.speakSpecific;
+// // mySpecific.call(cat); // meow
+// // mySpecific.apply(cat); // meow
+
+// mySpecific.bind(cat, 'grrhiss')()
+// mySpecific.call(cat, "grrrrr"); // grrrrr
+// mySpecific.apply(cat, ["hisssss"]); // hisssss
+
+// class Cat {
+//   speak(sound = "meow") {
+//     console.log(sound);
+//   }
+
+//   speakSpecific(sound) {
+//     this.speak(sound);
+//   }
+
+//   speakLater(delay) {
+//     setTimeout(function () {
+//       this.speak();
+//     }, delay);
+//   }
+// }
+// let cat = new Cat();
+
+// cat.speakLater(1000); // TypeError
+
+// class Cat {
+//     speak(sound = "meow") {
+//         console.log(sound);
+//     }
+
+//     speakSpecific(sound) {
+//         this.speak(sound);
+//     }
+
+//     speakLater(delay) {
+//         setTimeout(() => {
+//             this.speak();
+//         }, delay);
+//     }
+// }
+// let cat = new Cat();
+
+// cat.speakLater(1000); // meow
+
+// console.log(this);
+// console.log(globalThis);
+
+// (() => console.log(this))()
+
+// (function () {
+//     console.log(this);
+// })();
