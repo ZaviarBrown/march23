@@ -139,7 +139,7 @@ easily maintainable, fully tested, clean code
 - Red: Write tests, watch them fail
   - THIS IS THE MOST IMPORTANT STEP!!!
 - Green: Write code, just enough to pass the tests
-- Refactor: Write more tests, watch them fail, pass the tests
+- Refactor: Make your code better while still passing specs
 
 ---
 
