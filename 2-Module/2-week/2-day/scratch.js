@@ -160,3 +160,90 @@
 
 // // new myCoolFunc();
 // myCoolFunc();
+
+// function hello() {
+//     return `Hello ${this.firstName} and ${this.lastName}`;
+// }
+
+// const derek = {
+//     firstName: "Derek",
+// };
+
+// const zaviar = {
+//     firstName: "Zaviar",
+// };
+
+// const helloDerek = hello.bind(derek);
+// const otherDerek = hello.bind({ firstName: "Other Derek" });
+
+// const evenMoreOtherDerek = helloDerek
+//     .bind(zaviar)
+//     .bind(zaviar)
+//     .bind(zaviar)
+//     .bind({ lastName: "Brown" });
+// console.log(helloDerek());
+// console.log(otherDerek());
+// console.log(evenMoreOtherDerek());
+// console.log(evenMoreOtherDerek);
+
+// const thisWorks = hello.bind({ lastName: "Brown", ...zaviar });
+
+// console.log(thisWorks());
+
+// function hello() {
+//     return `Hello ${this.firstName}`;
+// }
+
+// const derek = {
+//     firstName: "Derek",
+// };
+
+// console.log(hello.bind(derek)());
+
+// function greeting(...messages) {
+//     const that = this;
+
+//     // console.log(
+//     //     "\n\n____THIS IS THIS____\n\n",
+//     //     this,
+//     //     "\n\n____THIS IS THIS____\n\n"
+//     // );
+//     return messages.map(function (message) {
+//         console.log(
+//             "\n\n____THIS IS THIS____\n\n",
+//             this,
+//             "\n\n____THIS IS THIS____\n\n"
+//         );
+//         return `${that.firstName} says ${message}`;
+//     });
+// }
+
+// function greeting(...messages) {
+//     return messages.map((message) => {
+//         return `${this.firstName} says ${message}`;
+//     });
+// }
+
+// const derek = {
+//     firstName: "Derek",
+// };
+
+// const derekMessages = greeting.bind(derek, "Hello class!");
+// console.log(derekMessages("Goodbye class!"));
+
+// const firstObj = {
+//     firstName: "Zaviar",
+// };
+
+// const secondObj = firstObj;
+
+// secondObj.firstName = "Kirin";
+
+// secondObj.heyo = "byo";
+// firstObj.blue = "berry";
+
+// // console.log(firstObj.firstName);
+// // console.log(secondObj.firstName);
+
+// console.log(firstObj);
+// console.log(secondObj);
