@@ -148,3 +148,56 @@
 // (function () {
 //     console.log(this);
 // })();
+
+// function hello() {
+//     console.log(this);
+//     return `Hello ${this.firstName}`;
+// }
+
+// const derek = {
+//     firstName: "Derek",
+// };
+
+// const zaviar = {
+//     firstName: "Zaviar",
+// };
+
+// // console.log(hello());
+
+// const myNewHello = hello.bind(derek);
+// const mySecondHello = myNewHello.bind(zaviar);
+// console.log(mySecondHello());
+// // const mySecondHello = hello.bind(zaviar);
+// function greeting(...messages) {
+//     const that = this;
+//     console.log(this);
+//     console.log(this === that);
+//     return messages.map(function (message) {
+//         console.log("\n\n");
+//         console.log(this, "THIS IS THE GLOBAL");
+//         console.log(this === that);
+//         return `${that.firstName} says ${message}`;
+//     });
+// }
+
+// const derek = {
+//     firstName: "Derek",
+// };
+
+// const derekMessages = greeting.bind(derek, "Hello class!");
+// console.log(derekMessages("Goodbye class!"));
+
+// const zavObj = {
+//     name: "Zaviar",
+// };
+
+// // zavObj.name = "Kirin";
+
+// // console.log(zavObj.name);
+
+// const newObj = zavObj;
+
+// newObj.name = "Kirin";
+
+// console.log(zavObj.name);
+// console.log(newObj.name);

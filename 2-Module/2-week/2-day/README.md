@@ -7,17 +7,28 @@
 ```js
 class Cat {
   speak(sound = "meow") {
+    // console.log(this);
     console.log(sound);
   }
 
   speakSpecific(sound) {
+    // console.log(this);
     this.speak(sound);
   }
+
+  constructor(name) {
+    this.name = name;
+  }
 }
-let cat = new Cat();
+
+let cat = new Cat("cat");
+let otherCat = new Cat("otherCat");
 
 cat.speak(); // 'meow'
 cat.speakSpecific("ayyeee lmao"); // 'ayyeee lmao'
+
+otherCat.speak(); // 'meow'
+otherCat.speakSpecific("ayyeee lmao"); // 'ayyeee lmao'
 
 const mySpeak = cat.speak;
 const mySpecific = cat.speakSpecific;
