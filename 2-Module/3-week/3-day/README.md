@@ -220,9 +220,35 @@ Add the sums together to get 12 + 48 + 512 + 61440 = 62012
 ```js
 const hex1 = "0xF23C";
 
-const hexToDecimal = (hexStr) => {};
+const hexToNum = {
+  A: 10,
+  B: 11,
+  C: 12,
+  D: 13,
+  E: 14,
+  F: 15,
+};
+
+const hexToDecimal = (hexStr) => {
+  // Remove "0x" prefix
+  const rawHex = hexStr.slice(2);
+
+  // Reverse the order
+  const reversedHex = rawHex.split("").reverse();
+
+  return reversedHex.reduce((sum, hex, i) => {
+    if (hexToNum[hex]) hex = hexToNum[hex];
+
+    // 16 ^ [current position] * bit
+    const base10 = Math.pow(16, i) * Number(hex);
+
+    // Add to our sum
+    return sum + base10;
+  }, 0);
+};
 
 console.log(hexToDecimal(hex1));
+console.log(hexToDecimal("0x5"));
 ```
 
 ---
