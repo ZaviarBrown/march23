@@ -57,13 +57,13 @@ class LinkedList {
     }
 }
 
-let i = 0;
+// let i = 0;
 
-for (; i < "abc".length; ) {
-    console.log("abc"[i]);
-    i++;
-}
+// for (; i < "abc".length; ) {
+//     console.log("abc"[i]);
+//     i++;
+// }
 
-console.log(i);
+// console.log(i);
 
 module.exports = LinkedList;

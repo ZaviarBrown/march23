@@ -1,4 +1,4 @@
-// const simple = [50, "pears", 889, "watermelon"];
+// const simple = [ 50, "pears", 889, "watermelon"];
 
 // const objZero = { value: 50 };
 // const objOne = { value: "pears" };
