@@ -1,4 +1,4 @@
-const sha256 = require("js-sha256");
+// const sha256 = require("js-sha256");
 
 // // const passwordChecker = () => "does a hash thing";
 
@@ -75,50 +75,57 @@ const sha256 = require("js-sha256");
 //     value: "50",
 // };
 
-//! Both hash/mod to index 0
-const val1 = {
-    key: "myNum",
-    value: "50",
-    next: null,
-};
+// //! Both hash/mod to index 0
+// const val1 = {
+//     key: "myNum",
+//     value: "50",
+//     next: null,
+// };
 
-//! Both hash/mod to index 0
-const val2 = {
-    key: "favFood",
-    value: "potato",
-    next: null,
-};
+// //! Both hash/mod to index 0
+// const val2 = {
+//     key: "favFood",
+//     value: "potato",
+//     next: null,
+// };
 
-const myData = [val1, null];
-console.log(myData);
+// const myData = [val1, null];
+// console.log(myData);
 
-// Now val2 collides
+// // Now val2 collides
 
-val2.next = myData[0];
+// val2.next = myData[0];
 
-console.log(val2);
+// console.log(val2);
 
-myData[0] = val2;
+// myData[0] = val2;
 
-console.log(myData);
+// console.log(myData);
 
-// [val2, null];
+// // [val2, null];
 
-//? Hash/mod = 1
-const val3 = {
-    key: "isAdmin",
-    value: "true",
-    next: null,
-};
+// //? Hash/mod = 1
+// const val3 = {
+//     key: "isAdmin",
+//     value: "true",
+//     next: null,
+// };
 
-myData[1] = val3;
+// myData[1] = val3;
 
-console.log("-----\n\n after val3 \n\n----");
-console.log(myData);
-// [val2, val3];
+// console.log("-----\n\n after val3 \n\n----");
+// console.log(myData);
+// // [val2, val3];
 
+// const newObj = {}
 
-const newObj = {}
+// newObj.myNum = '50'
+// newObj.favFood = 'potato'
 
-newObj.myNum = '50'
-newObj.favFood = 'potato'
+const myObj = { name: "Z" };
+
+console.log(myObj);
+
+myObj.name = "K";
+
+console.log(myObj);
