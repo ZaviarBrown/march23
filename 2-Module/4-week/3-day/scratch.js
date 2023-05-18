@@ -1,4 +1,4 @@
-const sha256 = require("js-sha256");
+// const sha256 = require("js-sha256");
 
 // const badHash = (anything) => `${anything}EldenRing`;
 
@@ -71,14 +71,24 @@ const sha256 = require("js-sha256");
 
 // console.log(2348723987592834982734 % 212344)
 
-const arr = ["a", "blue", 50];
+// const arr = ["a", "blue", 50];
+
+// const obj = {
+//     0: "a",
+//     1: "blue",
+//     2: 50,
+//     length: 3,
+//     slice: () => {
+//         // ...slices
+//     },
+// };
 
 const obj = {
-    0: "a",
-    1: "blue",
-    2: 50,
-    length: 3,
-    slice: () => {
-        // ...slices
-    },
+    name: "Z",
 };
+
+console.log(obj);
+
+obj.name = "K";
+
+console.log(obj);
