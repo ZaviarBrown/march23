@@ -167,6 +167,41 @@ function getHeight(rootNode) {
     return 1 + Math.max(getHeight(rootNode.left), getHeight(rootNode.right));
 }
 
+//* --------------------------------- Level Key On Node ---------------------------------
+
+function getHeight(rootNode) {
+    if (!rootNode) return -1;
+
+    rootNode.level = 0;
+
+    const stack = [rootNode];
+    let height = 0;
+
+    while (stack.length) {
+        const currNode = stack.pop();
+        const nextLevel = currNode.level + 1;
+
+        if (currNode.right) {
+            currNode.right.level = nextLevel;
+            stack.push(currNode.right);
+
+            if (height < nextLevel) {
+                height = nextLevel;
+            }
+        }
+        if (currNode.left) {
+            currNode.left.level = nextLevel;
+            stack.push(currNode.left);
+
+            if (height < nextLevel) {
+                height = nextLevel;
+            }
+        }
+    }
+
+    return height;
+}
+
 // --------------------------------- Student Solutions ---------------------------------
 
 function getHeight(rootNode) {
