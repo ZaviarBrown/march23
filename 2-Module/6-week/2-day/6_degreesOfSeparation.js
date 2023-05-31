@@ -14,7 +14,27 @@ const adjList = {
 };
 
 function degreesOfSeparation(start, end) {
-    // your code here
+    const queue = [[start]];
+    const visited = new Set(queue);
+
+    while (queue.length) {
+        const path = queue.shift();
+        const curr = path[path.length - 1];
+
+        if (curr === end) return path.length - 1;
+
+        const neighbors = adjList[curr];
+
+        neighbors.forEach((node) => {
+            if (!visited.has(node)) {
+                const newPath = [...path, node];
+                queue.push(newPath);
+                visited.add(node);
+            }
+        });
+    }
+
+    return false;
 }
 
 console.log("First Test:");

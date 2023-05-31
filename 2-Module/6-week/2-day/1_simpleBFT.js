@@ -13,7 +13,40 @@ const adjList = {
 };
 
 function printBreadthFirst(start) {
-    // your code here
+    const queue = [start];
+    // const visited = new Set(queue);
+    const visited = new Set();
+    visited.add(start);
+
+    while (queue.length) {
+        const currNode = queue.shift();
+
+        console.log(currNode);
+
+        const neighbors = adjList[currNode];
+
+        neighbors.forEach((node) => {
+            if (!visited.has(node)) {
+                queue.push(node);
+                visited.add(node);
+            }
+        });
+    }
+
+    // ? For of loop
+    // const queue = [start];
+    // const visited = new Set(queue);
+    // while (queue.length) {
+    //     let removed = queue.shift();
+    //     console.log(removed);
+    //     let neighbors = adjList[removed];
+    //     for (let i of neighbors) {
+    //         if (!visited.has(i)) {
+    //             queue.push(i);
+    //             visited.add(i);
+    //         }
+    //     }
+    // }
 }
 
 console.log("First Test:");
