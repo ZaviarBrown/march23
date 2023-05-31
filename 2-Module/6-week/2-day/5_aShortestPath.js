@@ -5,15 +5,6 @@
  * reach end from start, return a shortest path.  Otherwise, return false.
  */
 
-const adjList = {
-    1: [2, 5],
-    2: [1, 3, 5],
-    3: [2, 4],
-    4: [3, 5, 6],
-    5: [1, 2, 4],
-    6: [3],
-};
-
 // [L]
 // [R]
 
@@ -22,24 +13,31 @@ const adjList = {
 // [R, R]
 // [R, L]
 
+const adjList = {
+    1: [2, 5],
+    2: [1, 3, 5],
+    3: [2, 4],
+    4: [3, 5],
+    5: [1, 2, 4],
+    6: [],
+};
+
 function aShortestPath(start, end) {
     const queue = [[start]];
     const visited = new Set([start]);
 
     while (queue.length) {
-        console.log(queue);
-        console.log(visited);
+        const path = queue.shift();
+        const curr = path[path.length - 1];
 
-        const currPath = queue.shift();
-        const currNode = currPath[currPath.length - 1];
+        if (curr === end) return path;
 
-        if (currNode === end) return currPath;
-
-        const neighbors = adjList[currNode];
+        const neighbors = adjList[curr];
 
         neighbors.forEach((node) => {
             if (!visited.has(node)) {
-                queue.push([...currPath, node]);
+                const newPath = [...path, node];
+                queue.push(newPath);
                 visited.add(node);
             }
         });
