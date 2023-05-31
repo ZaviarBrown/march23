@@ -14,8 +14,47 @@ const adjList = {
 };
 
 function breadthFirstSearch(start, end) {
-    // your code here
+    const queue = [start];
+    const visited = new Set(queue);
+
+    while (queue.length) {
+        const currNode = queue.shift();
+
+        if (currNode === end) return true;
+
+        const neighbors = adjList[currNode];
+
+        neighbors.forEach((node) => {
+            if (!visited.has(node)) {
+                queue.push(node);
+                visited.add(node);
+            }
+        });
+    }
+
+    return false;
 }
+
+// function breadthFirstSearch(start, end) {
+//     const visited = {};
+//     const queue = [start];
+//     visited[start] = true;
+
+//     while (queue.length > 0) {
+//         const node = queue.shift();
+//         if (node === end) return true;
+
+//         const sideNode = adjList[node];
+//         for (const cats of sideNode) {
+//             if (!visited[cats]) {
+//                 visited[cats] = true;
+//                 queue.push(cats);
+//             }
+//         }
+//     }
+
+//     return false;
+// }
 
 console.log("First Test:");
 console.log(breadthFirstSearch(1, 3)); // -> true
