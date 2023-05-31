@@ -9,27 +9,37 @@ const adjList = {
     1: [2, 5],
     2: [1, 3, 5],
     3: [2, 4],
-    4: [3, 5],
+    4: [3, 5, 6],
     5: [1, 2, 4],
-    6: [],
+    6: [3],
 };
+
+// [L]
+// [R]
+
+// [L, L]
+// [L, R]
+// [R, R]
+// [R, L]
 
 function aShortestPath(start, end) {
     const queue = [[start]];
-    const visited = new Set(queue);
+    const visited = new Set([start]);
 
     while (queue.length) {
-        const path = queue.shift();
-        const curr = path[path.length - 1];
+        console.log(queue);
+        console.log(visited);
 
-        if (curr === end) return path;
+        const currPath = queue.shift();
+        const currNode = currPath[currPath.length - 1];
 
-        const neighbors = adjList[curr];
+        if (currNode === end) return currPath;
+
+        const neighbors = adjList[currNode];
 
         neighbors.forEach((node) => {
             if (!visited.has(node)) {
-                const newPath = [...path, node];
-                queue.push(newPath);
+                queue.push([...currPath, node]);
                 visited.add(node);
             }
         });
