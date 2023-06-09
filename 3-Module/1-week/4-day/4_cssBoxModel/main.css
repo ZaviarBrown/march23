@@ -1,0 +1,65 @@
+html,
+body {
+    /* DO NOT EDIT */
+    font-family: sans-serif;
+}
+
+/* Phase 1 */
+
+#logo {
+    /* DO NOT EDIT */
+    vertical-align: bottom;
+    height: 30px;
+    margin-bottom: 3px;
+    /* width: 30px; */
+}
+
+h1 {
+    display: inline;
+}
+
+/* Phase 2 */
+
+.box {
+    /* DO NOT EDIT */
+    vertical-align: top;
+
+    display: inline-block;
+
+    border: 4px black dotted;
+    background-color: lightyellow;
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.alternate {
+    box-sizing: border-box;
+}
+
+/* Phase 3 */
+
+.footer {
+    /* DO NOT EDIT */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.quote {
+    /* DO NOT EDIT */
+    background-color: lightgray;
+    font-size: larger;
+
+    width: fit-content;
+    margin: 0px auto 10px auto;
+    padding: 40px;
+}
+
+.attribution {
+    /* DO NOT EDIT */
+    font-style: italic;
+
+    display: block;
+}
