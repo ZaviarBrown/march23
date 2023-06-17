@@ -1,0 +1,29 @@
+/* Your code here */
+.outer-layer-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.inner-layer-2 {
+    grid-row: 1;
+    grid-column: 2 / span 4;
+    /* grid-column: 2 / 6; */
+}
+
+/* .inner-layer-2 {
+    grid-column-start: 2;
+    grid-column-end: 6;
+} */
+
+/* .inner-layer-2 {
+    translate: 30px;
+    width: 120px;
+} */
+
+/* .outer-layer-2 > .inner-layer-2{
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 6
+
+} */

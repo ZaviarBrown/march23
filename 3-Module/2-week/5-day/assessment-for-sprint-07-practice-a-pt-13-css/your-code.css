@@ -1,0 +1,72 @@
+/* Your code here */
+body {
+    background-color: #efefef;
+}
+
+fieldset {
+    background-color: white;
+}
+
+.blue-box,
+.orange-box {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+
+.blue-box {
+    background-color: blue;
+}
+
+.orange-box {
+    background-color: orange;
+}
+
+.outer-layer-2 {
+    position: relative;
+}
+
+.orange-box {
+    top: -40px;
+}
+
+.outer-layer-3 p + p {
+    color: orange;
+}
+
+.outer-layer-4 {
+    box-shadow: 0 0 4px rgba(0, 0, 255, 0.6);
+}
+
+/* .outer-layer-5 {
+    overflow-y: scroll;
+
+    overflow: scroll;
+    overflow-x: hidden;
+} */
+
+.outer-layer-5 {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* scrollbar-width: auto; */
+    /* scrollbar-color: gray; */
+}
+
+.outer-layer-5::-webkit-scrollbar {
+    width: 14px; /* width of the entire scrollbar */
+}
+
+.outer-layer-5::-webkit-scrollbar-track {
+    background: rgb(240 240 240); /* color of the tracking area */
+}
+
+.outer-layer-5::-webkit-scrollbar-thumb {
+    width: px;
+    background-color: rgb(193 193 193); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid rgb(240 240 240); /* creates padding around scroll thumb */
+}
+
+.uppercase.bold {
+    font-family: "Courier New";
+}
