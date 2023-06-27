@@ -1,0 +1,12 @@
+{
+    "name": "1-day",
+    "version": "1.0.0",
+    "main": "scratch.js",
+    "type": "module",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "node-fetch": "^3.3.1"
+    }
+}
