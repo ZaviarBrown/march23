@@ -12,8 +12,6 @@ module.exports = (sequelize, DataTypes) => {
                 through: models.DraftPick,
                 foreignKey: "fanId",
                 otherKey: "playerId",
-                onDelete: "CASCADE",
-                hooks: true,
             });
         }
     }
