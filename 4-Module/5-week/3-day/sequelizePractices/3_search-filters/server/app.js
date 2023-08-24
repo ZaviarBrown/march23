@@ -14,13 +14,21 @@ const { Op } = require("sequelize");
 app.use(express.json());
 
 app.get("/musicians", async (req, res, next) => {
+    const {
+        firstName,
+        lastName,
+        bandName,
+        bandFields,
+        instrumentTypes,
+        instrumentFields,
+        musicianFields,
+    } = req.query;
+
     // Establish base query object to be built up
     let query = {
         where: {},
         include: [],
     };
-
-    const { firstName, lastName, bandName, instrumentTypes } = req.query;
 
     // Pagination Options
     // ?page=XX&size=YY
@@ -33,15 +41,15 @@ app.get("/musicians", async (req, res, next) => {
         query.offset = size * (page - 1);
     }
 
-    console.log(query);
-
     // STEP 1: WHERE clauses on the Musician model
     // ?firstName=XX&lastName=YY
     // Add keys to the WHERE clause to match the firstName param, if it exists.
     // End result: { where: { firstName: req.query.firstName } }
-
     if (firstName) {
         query.where.firstName = firstName;
+
+        // BONUS STEP 7: Change exact name matches to use LIKE for Musicians and Bands
+        query.where.firstName = { [Op.like]: `%${req.query.firstName}%` };
     }
 
     // Add keys to the WHERE clause to match the lastName param, if it exists.
@@ -49,6 +57,9 @@ app.get("/musicians", async (req, res, next) => {
 
     if (lastName) {
         query.where.lastName = lastName;
+
+        // BONUS STEP 7: Change exact name matches to use LIKE for Musicians and Bands
+        query.where.lastName = { [Op.like]: `%${req.query.lastName}%` };
     }
 
     // STEP 2: WHERE clauses on the associated Band model
@@ -58,14 +69,30 @@ app.get("/musicians", async (req, res, next) => {
     // End result: { include: [{ model: Band, where: { name: req.query.bandName } }] }
 
     if (bandName) {
-        const newQuery = {
+        // BONUS STEP 5: Specify attributes to be returned
+        // ?bandFields[]=XX&bandFields[]=YY
+        // If keyword 'all' is used, do not specify any specific attributes
+        // If keyword 'none' is used, do not include any Band attributes
+        // If any other attributes are provided, only include those values
+        let includedAttributes;
+        if (!bandFields || bandFields.includes("all")) {
+            includedAttributes = {};
+        } else if (bandFields.includes("none")) {
+            includedAttributes = { attributes: [] };
+        } else {
+            includedAttributes = { attributes: bandFields };
+        }
+
+        query.include.push({
             model: Band,
             where: {
-                name: bandName,
+                name: req.query.bandName,
+                // BONUS STEP 7: Change exact name matches to use LIKE for Musicians and Bands
+                name: { [Op.like]: `%${req.query.bandName}%` },
             },
-        };
-
-        query.include.push(newQuery);
+            // BONUS STEP 5: Specify attributes to be returned
+            ...includedAttributes,
+        });
     }
 
     // STEP 3: WHERE Clauses on the associated Instrument model
@@ -84,13 +111,28 @@ app.get("/musicians", async (req, res, next) => {
     */
 
     if (instrumentTypes) {
-        const newQueryObj = {
-            model: Instrument,
-            where: { type: instrumentTypes },
-            through: { attributes: [] }, // Omits the join table attributes
-        };
+        // BONUS STEP 5: Specify attributes to be returned
+        // ?instrumentFields[]=XX&instrumentFields[]=YY
+        // If keyword 'all' is used, do not specify any specific attributes
+        // If keyword 'none' is used, do not include any Instrument attributes
+        // If any other attributes are provided, only include those values
+        let includedAttributes;
+        if (!instrumentFields || instrumentFields.includes("all")) {
+            includedAttributes = {};
+        } else if (instrumentFields.includes("none")) {
+            includedAttributes = { attributes: [] };
+        } else {
+            includedAttributes = { attributes: instrumentFields };
+        }
 
-        query.include.push(newQueryObj);
+        query.include.push({
+            model: Instrument,
+            where: { type: req.query.instrumentTypes },
+            // Do not include attributes from the MusicianInstruments join table
+            through: { attributes: [] },
+            // BONUS STEP 5: Specify attributes to be returned
+            ...includedAttributes,
+        });
     }
 
     // BONUS STEP 4: Specify Musician attributes to be returned
@@ -102,27 +144,15 @@ app.get("/musicians", async (req, res, next) => {
     // If keyword 'none' is used, do not include any Musician attributes
     // If any other attributes are provided, only include those values
 
-    // Your code here
-
-    // BONUS STEP 5: Specify attributes to be returned
-    // These additions should be included in your previously implemented
-    // associations, STEPS 2 and 3 above.
-    // ?bandFields[]=XX&bandFields[]=YY
-    // ?instrumentFields[]=XX&instrumentFields[]=YY
-    // If keyword 'all' is used, do not specify specific attributes
-    // If keyword 'none' is used, do not include any Instrument attributes
-    // If any other attributes are provided, only include those values
-    // End result for the Band model:
-    /* {
-            include: [{
-                model: Band,
-                where: { name: req.query.bandName },
-
-                // New to this step:
-                attributes: req.query.bandFields
-            }]
-        }
-    */
+    let includedAttributes;
+    if (!musicianFields || musicianFields.includes("all")) {
+        includedAttributes = {};
+    } else if (musicianFields.includes("none")) {
+        includedAttributes = { attributes: [] };
+    } else {
+        includedAttributes = { attributes: musicianFields };
+    }
+    query = { ...query, ...includedAttributes };
 
     // BONUS STEP 6: Order Options
     // ?order[]=XX,xx&order[]=YY&order[]=ZZ,zz
@@ -137,7 +167,16 @@ app.get("/musicians", async (req, res, next) => {
     // Example: ?order[]=firstName,asc&order[]=lastName&order[]=createdAt,desc
     // End result: { order: [['firstName', 'asc'], ['lastName'], ['createdAt', 'desc']] }
 
-    // Your code here
+    if (req.query.order) {
+        const orderPairs = req.query.order;
+        // For each potential pair, split on the `,` and return the array
+        // [['firstName', 'ASC'], ['lastName'], ['createdAt', 'DESC']]
+        // This format matches what Sequelize expects for the `order` option
+        query.order = orderPairs.map((pair) => pair.split(","));
+    } else {
+        // Default values when no order param is given
+        query.order = [["lastName"], ["firstName"]];
+    }
 
     // Perform compiled query
     const musicians = await Musician.findAndCountAll(query);
