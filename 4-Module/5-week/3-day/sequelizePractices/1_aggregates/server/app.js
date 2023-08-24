@@ -20,7 +20,6 @@ app.get("/toys", async (req, res, next) => {
 
     // B. Create a `toysCount` variable that returns the total number of toy
     // records
-    // const toysCount = allToys.length;
     const toysCount = await Toy.count();
 
     // C. Create a `toysMinPrice` variable that returns the minimum price of all
@@ -60,7 +59,7 @@ app.get("/cats/:id/toys", async (req, res, next) => {
             [sequelize.fn("AVG", sequelize.col("price")), "averageToyPrice"],
             // Find the total price of this cat's toys, and display the
             // value with a key of `totalToyPrice`
-            [sequelize.fn("SUM", sequelize.col("price")), "totalToyPrice"],
+            [sequelize.fn("TOTAL", sequelize.col("price")), "totalToyPrice"],
         ],
         raw: true,
     });
@@ -82,13 +81,51 @@ app.get("/cats/:id/toys", async (req, res, next) => {
 
     // After the steps above are complete, refactor the line below to only
     // display `catData`
-    // res.json({ catToysAggregateData, cat });
-    res.json(catData);
+    res.json({ catToysAggregateData, cat });
+    // res.json(catData);
 });
 
 // BONUS STEP: Create an endpoint for GET /data-summary that includes a summary
 // of all the aggregate data according to spec
-// Your code here
+app.get("/data-summary", async (req, res, next) => {
+    const totalNumberOfCats = await Cat.count();
+
+    const totalNumberOfToys = await Toy.count();
+
+    const toySummary = await Toy.findAll({
+        attributes: [
+            [sequelize.fn("AVG", sequelize.col("price")), "averagePriceOfAToy"],
+
+            [
+                sequelize.fn("TOTAL", sequelize.col("price")),
+                "totalPriceOfAllToys",
+            ],
+
+            [sequelize.fn("MAX", sequelize.col("price")), "maximumToyPrice"],
+
+            [sequelize.fn("MIN", sequelize.col("price")), "minimumToyPrice"],
+        ],
+    });
+
+    const expensiveToySummary = await Toy.findAll({
+        where: {
+            price: { [Op.gt]: 55 },
+        },
+        attributes: [
+            [
+                sequelize.fn("AVG", sequelize.col("price")),
+                "averagePriceOfAnExpensiveToy",
+            ],
+        ],
+    });
+
+    res.json({
+        totalNumberOfCats,
+        totalNumberOfToys,
+        toySummary,
+        expensiveToySummary,
+    });
+});
 
 // Root route - DO NOT MODIFY
 app.get("/", (req, res) => {
