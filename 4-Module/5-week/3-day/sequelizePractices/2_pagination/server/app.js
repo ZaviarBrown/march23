@@ -40,7 +40,7 @@ app.get("/musicians", async (req, res, next) => {
     // Include associated bands and their `id` and `name`
     // Order by musician `lastName` then `firstName`
 
-    console.log(pagination);
+    // console.log(pagination);
 
     const query = {
         order: [["lastName"], ["firstName"]],
